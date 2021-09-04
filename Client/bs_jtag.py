@@ -22,12 +22,12 @@ def jtag_discover_pinout():
         tdi = bs_reply_args[3]
         tdo = bs_reply_args[4]
         ntrst = bs_reply_args[5]
-        print("+++ %d JTAG FOUND" % (bs_reply_args[0]))
-        print("+++ TCK %i" % (tck))
-        print("+++ TMS %i" % (tms))
-        print("+++ TDI %i" % (tdi))
-        print("+++ TDO %i" % (tdo))
-        print("+++ NTRST %i" % (ntrst))
+        print(("+++ %d JTAG FOUND" % (bs_reply_args[0])))
+        print(("+++ TCK %i" % (tck)))
+        print(("+++ TMS %i" % (tms)))
+        print(("+++ TDI %i" % (tdi)))
+        print(("+++ TDO %i" % (tdo)))
+        print(("+++ NTRST %i" % (ntrst)))
     print("+++ SUCCESS")
     return (bs_reply_length, bs_reply_args)
 

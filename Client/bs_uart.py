@@ -18,7 +18,7 @@ def uart_data_discover():
 
     ngpio = 9
     for i in range(ngpio):
-        print("+++ SIGNAL CHANGES: D%d --> %d" % ((i+1), bs_reply_args[i]))
+        print(("+++ SIGNAL CHANGES: D%d --> %d" % ((i+1), bs_reply_args[i])))
     print("+++ SUCCESS")
     return rv
 
@@ -34,7 +34,7 @@ def uart_tx(rxpin, baudrate):
 
     txpin = bs_reply_args[0]
     if txpin != 0xffffffff:
-        print("+++ FOUND UART TX on GPIO %d" % (txpin + 1))
+        print(("+++ FOUND UART TX on GPIO %d" % (txpin + 1)))
     else:
         print("+++ NOT FOUND. Note that GPIO 1 can't be used here.")
     print("+++ SUCCESS")
@@ -52,7 +52,7 @@ def uart_rx():
     ngpio = 9
     for i in range(ngpio):
         changes = bs_reply_args[5*i + 0]
-        print("+++ GPIO %d has %d signal changes" % (i+1, changes))
+        print(("+++ GPIO %d has %d signal changes" % (i+1, changes)))
         if changes > 0:
             databits = bs_reply_args[5*i + 1]
             if databits > 0:
@@ -60,15 +60,15 @@ def uart_rx():
                 parity = bs_reply_args[5*i + 3]
                 baudrate = bs_reply_args[5*i + 4]
                 print("+++ UART FOUND")
-                print("+++ DATABITS: %d" % (databits))
-                print("+++ STOPBITS: %d" % (stopbits))
+                print(("+++ DATABITS: %d" % (databits)))
+                print(("+++ STOPBITS: %d" % (stopbits)))
                 if parity == 0:
                     print("+++ PARITY: EVEN")
                 elif parity == 1:
                     print("+++ PARITY: ODD")
                 else:
                     print("+++ PARITY: NONE")
-                print("+++ BAUDRATE: %d" % (baudrate))
+                print(("+++ BAUDRATE: %d" % (baudrate)))
     print("+++ SUCCESS")
     return (bs_reply_length, bs_reply_args)
 

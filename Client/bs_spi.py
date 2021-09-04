@@ -52,7 +52,7 @@ def spi_read_id():
     v1 = bs_reply_args[0]
     v2 = bs_reply_args[1]
     v3 = bs_reply_args[2]
-    print("+++ SPI ID %.2x%.2x%.2x" % (v1, v2, v3))
+    print(("+++ SPI ID %.2x%.2x%.2x" % (v1, v2, v3)))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -104,7 +104,7 @@ def spi_fuzz(cs, clk, mosi, miso):
     (bs_reply_length, bs_reply_args) = rv
 
     n = bs_reply_length / (4*6)
-    print("+++ FOUND %d SPI commands" % (n))
+    print(("+++ FOUND %d SPI commands" % (n)))
     for i in range(n):
         cmd = bs_reply_args[i*6 + 0]
         v1 = bs_reply_args[i*6 + 1]
@@ -113,12 +113,12 @@ def spi_fuzz(cs, clk, mosi, miso):
         v4 = bs_reply_args[i*6 + 4]
         v5 = bs_reply_args[i*6 + 5]
         print("+++ SPI command FOUND")
-        print("+++ SPI command %.2x" % (cmd))
-        print("+++ SPI v1 %.2x" % (v1))
-        print("+++ SPI v2 %.2x" % (v2))
-        print("+++ SPI v3 %.2x" % (v3))
-        print("+++ SPI v4 %.2x" % (v4))
-        print("+++ SPI v5 %.2x" % (v5))
+        print(("+++ SPI command %.2x" % (cmd)))
+        print(("+++ SPI v1 %.2x" % (v1)))
+        print(("+++ SPI v2 %.2x" % (v2)))
+        print(("+++ SPI v3 %.2x" % (v3)))
+        print(("+++ SPI v4 %.2x" % (v4)))
+        print(("+++ SPI v5 %.2x" % (v5)))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -133,17 +133,17 @@ def spi_discover_pinout():
     (bs_reply_length, bs_reply_args) = rv
 
     n = bs_reply_length / (4*4)
-    print("+++ FOUND %d SPI interfaces" % (n))
+    print(("+++ FOUND %d SPI interfaces" % (n)))
     for i in range(n):
         cs = bs_reply_args[i*4 + 0]
         clk = bs_reply_args[i*4 + 1]
         mosi = bs_reply_args[i*4 + 2]
         miso = bs_reply_args[i*4 + 3]
         print("+++ SPI interface FOUND")
-        print("+++ SPI CS at GPIO %i" % (cs))
-        print("+++ SPI CLK at GPIO %i" % (clk))
-        print("+++ SPI MOSI at GPIO %i" % (mosi))
-        print("+++ SPI MISO at GPIO %i" % (miso))
+        print(("+++ SPI CS at GPIO %i" % (cs)))
+        print(("+++ SPI CLK at GPIO %i" % (clk)))
+        print(("+++ SPI MOSI at GPIO %i" % (mosi)))
+        print(("+++ SPI MISO at GPIO %i" % (miso)))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -155,7 +155,7 @@ def spi_streg1(cs, clk, mosi, miso):
         return None
     (bs_reply_length, bs_reply_args) = rv
     for i in range(1, 2):
-       print("+++ STATUS REGISTER 1: %.2x" % (bs_reply_args[i]))
+       print(("+++ STATUS REGISTER 1: %.2x" % (bs_reply_args[i])))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -167,7 +167,7 @@ def spi_streg2(cs, clk, mosi, miso):
         return None
     (bs_reply_length, bs_reply_args) = rv
     for i in range(1, 2):
-       print("+++ STATUS REGISTER 2: %.2x" % (bs_reply_args[i]))
+       print(("+++ STATUS REGISTER 2: %.2x" % (bs_reply_args[i])))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -179,7 +179,7 @@ def spi_readuid(cs, clk, mosi, miso):
         return None
     (bs_reply_length, bs_reply_args) = rv
     for i in range(5, 13):
-       print("+++ UID: %.2x" % (bs_reply_args[i]))
+       print(("+++ UID: %.2x" % (bs_reply_args[i])))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -200,7 +200,7 @@ def doSendCommand(cs, clk, mosi, miso, args):
         return None
     (bs_reply_length, bs_reply_args) = rv
     for i in range(n):
-       print("+++ SPI Response: %.2x" % (bs_reply_args[i]))
+       print(("+++ SPI Response: %.2x" % (bs_reply_args[i])))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -234,7 +234,7 @@ def spi_bb_read_id(cs, clk, mosi, miso):
     v1 = bs_reply_args[0]
     v2 = bs_reply_args[1]
     v3 = bs_reply_args[2]
-    print("+++ SPI ID %.2x%.2x%.2x" % (v1, v2, v3))
+    print(("+++ SPI ID %.2x%.2x%.2x" % (v1, v2, v3)))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 

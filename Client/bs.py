@@ -91,7 +91,7 @@ def requestreply(command, request_args, nretries=10):
 
     for i in range(nretries):
         if i > 0:
-            print("+++ Retransmitting %d/10" % (i))
+            print(("+++ Retransmitting %d/10" % (i)))
             if i > 3:
                 FlushInput()
                 time.sleep(5)

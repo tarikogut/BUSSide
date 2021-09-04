@@ -12,7 +12,7 @@ import bs_spi
 sequence_number = 5
 
 if len(sys.argv) != 2:
-    print("Usage: %s <serdevice>" % (sys.argv[0]))
+    print(("Usage: %s <serdevice>" % (sys.argv[0])))
     sys.exit(0)
 
 device = sys.argv[1]
@@ -85,7 +85,7 @@ print("+++")
 
 while True:
     try:
-        command = raw_input("> ")
+        command = input("> ")
     except:
         break
     rv = doCommand(command)

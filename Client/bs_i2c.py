@@ -19,9 +19,9 @@ def i2c_discover_slaves(sda, scl):
     (bs_reply_length, bs_reply_args) = rv
 
     nslave_addresses = bs_reply_length / 4
-    print("+++ %d I2C slave addresses" % (nslave_addresses))
+    print(("+++ %d I2C slave addresses" % (nslave_addresses)))
     for i in range(nslave_addresses):
-        print("+++ I2C slave address FOUND at %i" % bs_reply_args[i])
+        print(("+++ I2C slave address FOUND at %i" % bs_reply_args[i]))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
@@ -35,13 +35,13 @@ def i2c_discover():
     (bs_reply_length, bs_reply_args) = rv
 
     n = bs_reply_length / 8
-    print("+++ FOUND %d I2C interfaces" % (n))
+    print(("+++ FOUND %d I2C interfaces" % (n)))
     for i in range(n):
         sda = bs_reply_args[i*2 + 0]
         scl = bs_reply_args[i*2 + 1]
         print("+++ I2C interface FOUND")
-        print("+++ I2C SDA at GPIO %i" % (sda))
-        print("+++ I2C SCL at GPIO %i" % (scl))
+        print(("+++ I2C SDA at GPIO %i" % (sda)))
+        print(("+++ I2C SCL at GPIO %i" % (scl)))
     print("+++ SUCCESS\n")
     return (bs_reply_length, bs_reply_args)
 
